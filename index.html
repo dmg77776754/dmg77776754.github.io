@@ -347,5 +347,100 @@ document.querySelectorAll('.add-to-cart').forEach(btn => {
 });
 </script>
 
+<!-- ОТПРАВИТЬ НАХУЙ — САМАЯ ПРОСТАЯ И РАБОЧАЯ ВЕРСИЯ -->
+<div style="text-align:center; margin:80px 0;">
+  <button onclick="fuck('MR.V','')" style="font-size:40px; padding:20px 50px; margin:20px; background:#ff0044; color:white; border:6px solid lime; cursor:pointer;">
+    ОТПРАВИТЬ MR.V НАХУЙ
+  </button>
+
+  <button onclick="fuck('MR.E','')" style="font-size:40px; padding:20px 50px; margin:20px; background:#00ffff; color:black; border:6px solid #ff00ff; cursor:pointer;">
+    ОТПРАВИТЬ MR.E НАХУЙ
+  </button>
+</div>
+
+<!-- Полноэкранный оверлей -->
+<div id="fuck" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:black; z-index:99999; color:white; font-size:70px; text-align:center; padding-top:20vh;">
+  <div id="msg"></div>
+  <div id="timer" style="font-size:120px; color:red; margin-top:50px;">3</div>
+</div>
+
+<script>
+function fuck(name, debt) {
+  const overlay = document.getElementById('fuck');
+  const msg = document.getElementById('msg');
+  const timer = document.getElementById('timer');
+  
+  overlay.style.display = 'block';
+  msg.innerHTML = name + ' успешно отправлен нахуй!<br>Вернётся через...';
+  timer.textContent = '3';
+
+  let flashes = 0;
+  const flash = setInterval(() => {
+    overlay.style.background = flashes % 2 ? '#300000' : 'black';
+    flashes++;
+  }, 180);
+
+  let sec = 3;
+  const countdown = setInterval(() => {
+    sec--;
+    timer.textContent = sec;
+    if (sec <= 0) {
+      clearInterval(countdown);
+      clearInterval(flash);
+      msg.innerHTML = 'шутка он друн❤️❤️! ' + debt + '<br><br><span style="font-size:60px;">никогда не уйдёт ❤️</span>';
+      timer.style.display = 'none';
+      setTimeout(() => overlay.style.display = 'none', 4000);
+    }
+  }, 1000);
+}
+</script>
+
+<!-- КНОПКА ПЬЯНЫЙ РЕЖИМ -->
+<div style="text-align:center; margin:80px 0;">
+  <button id="drunkBtn" style="font-size:42px; padding:25px 70px; background:#ff00ff; color:black; border:8px ridge lime; cursor:pointer; box-shadow:0 0 40px #00ffff;">
+    ВКЛЮЧИТЬ ПЬЯНЫЙ РЕЖИМ 2007
+  </button>
+</div>
+
+<!-- ПЬЯНЫЙ ОВЕРЛЕЙ -->
+<div id="drunkOverlay" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; pointer-events:none; z-index:9999; background:rgba(255,0,100,0.1); animation:drunkBg 4s infinite;"></div>
+
+<audio id="drunkMusic" loop>
+  <source src="Digital_Scramble.mp3" type="audio/mp3">
+</audio>
+
+<style>
+@keyframes drunkBg   { 0%{background:rgba(255,0,100,0.1)} 50%{background:rgba(0,255,255,0.15)} 100%{background:rgba(255,255,0,0.1)} }
+@keyframes drunkText { 0%,100%{transform:translateX(0) rotate(0)} 25%{transform:translateX(-10px) rotate(-2deg)} 75%{transform:translateX(10px) rotate(2deg)} }
+@keyframes drunkImg  { 0%,100%{transform:rotate(0)} 30%{transform:rotate(-8deg)} 70%{transform:rotate(8deg)} }
+.drunk-mode *          { animation:drunkText 2s infinite !important; }
+.drunk-mode img        { animation:drunkImg 3s infinite !important; transform-origin:center !important; }
+.drunk-mode h1,h2,h3   { color:lime !important; text-shadow:0 0 20px red !important; }
+.drunk-mode { filter:hue-rotate(90deg) blur(1px) !important; }
+</style>
+
+<script>
+let drunk = false;
+document.getElementById('drunkBtn').onclick = () => {
+  drunk = !drunk;
+  if (drunk) {
+    document.body.classList.add('drunk-mode');
+    document.getElementById('drunkOverlay').style.display = 'block';
+    document.getElementById('drunkBtn').textContent = 'МЫ НЕ ПИЛИ ОФИЦЕР КЛЯНУСЬ';
+    document.getElementById('drunkBtn').style.background = 'lime';
+    document.getElementById('drunkBtn').style.color = 'black';
+    document.getElementById('drunkMusic').play().catch(()=>{});
+    
+    // бегущая строка внизу
+    const ticker = document.createElement('div');
+    ticker.style = 'position:fixed; bottom:0; width:100%; background:#000; color:lime; font-size:40px; padding:20px; text-align:center; animation:drunkText 1.5s infinite; z-index:99999;';
+    ticker.innerHTML = 'МЫ НЕ БУХАЛИ БЛЯ БУДЕМ   •   ВСЕОНАМАНА   •   ЕщЕ поОДНОЙ НАЛИВАЙ   •   ЯЩШЕБЛЕВЫАТЬБУДУУУУУУУУУУУ';
+    document.body.appendChild(ticker);
+  } else {
+    location.reload(); // самый простой и надёжный выключатель
+  }
+};
+</script>
+
 </body>
 </html>
