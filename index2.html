@@ -1,0 +1,182 @@
+<div style="text-align: center;">
+  <img src="mr.e2.jpg" width="300" height="200" style="margin-right: 20px;">
+  <img src="1.jpg" width="300" height="200" style="margin-right: 20px;">
+  <img src="image3.jpg" width="300" height="200">
+</div>
+
+<!-- ======== КОНЕЦ твоего оригинального кода ======== -->
+
+<!-- Падающие звёзды и кресты 2007 -->
+<script>
+setInterval(() => {
+  let s = document.createElement('div');
+  s.innerHTML = Math.random() > 0.5 ? '✞' : '★';
+  s.style.position = 'fixed';
+  s.style.left = Math.random()*100 + 'vw';
+  s.style.top = '-50px';
+  s.style.fontSize = '34px';
+  s.style.color = ['#ff00ff','#00ffff','#ffff00','#00ff00'][Math.floor(Math.random()*4)];
+  s.style.textShadow = '0 0 15px white';
+  s.style.zIndex = 9997;
+  s.style.animation = 'fall ' + (Math.random()*3 + 4) + 's linear forwards';
+  document.body.appendChild(s);
+  setTimeout(() => s.remove(), 10000);
+}, 180);
+
+const style = document.createElement('style');
+style.innerHTML = @keyframes fall { to { transform: translateY(120vh) rotate(720deg); opacity:0; } };
+document.head.appendChild(style);
+</script>
+
+<!-- Автозапуск музла (Tokyo Hotel — классика 2007) -->
+<audio autoplay loop hidden>
+  <source src="https://cdn.glitch.global/7c8f8e9c-1d04-4c55-9c83-7b8f8e9c8f8e/monsoon.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Финальный штрих — ещё одна бегущая строка снизу -->
+<marquee style="position:fixed;bottom:0;left:0;width:100%;background:#000;color:#0f0;font-size:28px;z-index:9998;" scrollamount="15">
+  2007 — ЛУЧШИЙ ГОД В ИСТОРИИ ИНТЕРНЕТА ★ MR.V & MR.E — ЛЕГЕНДЫ ★
+</marquee>
+
+</body>
+</html>
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>FRIENDSHIP WEBSITE 2007</title>
+
+<style>
+body {
+  margin:0;
+  background:
+    url("https://media1.tenor.com/m/cROLr1iA2UMAAAAd/stars.gif"),
+    linear-gradient(135deg, #000033, #19004a, #32006e);
+  background-size: 300px, cover;
+  font-family: "Comic Sans MS", Arial, Impact;
+  color:#fff;
+  overflow-x:hidden;
+  cursor: url('https://i.imgur.com/2P9zN6j.gif'), auto !important; /* мигающий курсор 2007 */
+}
+.center { text-align:center; }
+.blink { animation: blink 0.8s infinite; }
+@keyframes blink { 50%{opacity:0.3;} }
+
+.marq {
+  font-size:38px;
+  font-weight:bold;
+  color: #fff;
+  background: linear-gradient(90deg, red, yellow, lime, cyan, violet);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 6px rgba(255,255,255,0.7);
+}
+
+.section {
+  border: 6px double #fff;
+  padding:20px;
+  margin:40px auto;
+  width: 80%;
+  max-width:900px;
+  background: rgba(0,0,0,0.55);
+  box-shadow: 0 0 25px #000;
+  position: relative;
+}
+
+.photo-block {
+  width:100%;
+  height:450px;
+  background-size:cover;
+  background-position:center;
+  border:8px ridge #ff00ff;
+  box-shadow:0 0 20px #ff00d9;
+  position:relative;
+  overflow:hidden;
+}
+
+.glowText {
+  font-size:52px;
+  font-weight:bold;
+  text-shadow: 
+    0 0 6px #fff,
+    0 0 12px #ff00ff,
+    0 0 20px #ff00ff,
+    0 0 40px #ff008c;
+}
+
+.sticker {
+  position:absolute;
+  width:120px;
+  height:120px;
+}
+
+.spin { animation: spin 4s linear infinite; }
+@keyframes spin { 0%{transform:rotate(0deg);} 100%{transform:rotate(360deg);} }
+
+.float { animation: float 2.6s ease-in-out infinite; }
+@keyframes float { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-14px);} }
+
+.marquee-bar {
+  margin-top:30px;
+  padding:10px;
+  background: linear-gradient(90deg, #ff0000, #ff9900, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff);
+  border-top:4px solid #fff;
+  border-bottom:4px solid #fff;
+}
+
+/* ======== НОВЫЕ 2007-ЭФФЕКТЫ ======== */
+::selection { background:#ff00ff; color:yellow; }
+img { border:5px solid #ff00ff !important; box-shadow:0 0 20px #00ffff !important; }
+</style>
+</head>
+
+<body>
+
+<!-- БЛЕСТКИ НА ВЕСЬ ЭКРАН -->
+<div style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999;background:url('https://i.imgur.com/8u5N5z.gif') repeat;"></div>
+
+<!-- ТРОЙНАЯ БЕГУЩАЯ СТРОКА СВЕРХУ -->
+<marquee style="position:fixed;top:0;left:0;width:100%;background:linear-gradient(90deg,#ff0080,#00ff80);color:yellow;font-size:42px;font-weight:bold;z-index:9998;text-shadow:0 0 10px black;" scrollamount="18" direction="left">
+  ULTRA FRIENDSHIP 2007 FOREVER ★ MR.V + MR.E ★ НЕ УДАЛЯЙ ИЗ ТОПА ★ 2007 NEVER DIES
+</marquee>
+
+<!-- Твой оригинальный код начинается здесь — всё на месте! -->
+
+<div class="marquee-bar">
+<marquee scrollamount="9" behavior="alternate">
+  <span class="marq">MR.V & MR.E</span>
+</marquee>
+</div>
+
+<div class="section">
+  <div class="center glowText blink">MR. V & MR.E</div>
+
+  <div class="photo-block" style="background-image:url('mr_v.jpg');">
+    <img src="https://media.tenor.com/M8m-uL_Xg1cAAAAi/sparkle-star.gif" class="sticker spin" style="left:10px; top:10px;">
+    <img src="https://media.tenor.com/1HRi5L3skC0AAAAi/emo.gif" class="sticker float" style="right:10px; bottom:10px;">
+    <img src="https://media.tenor.com/JlECfH3GMbIAAAAi/trollface.gif" class="sticker" style="left:20px; bottom:20px;">
+  </div>
+
+  <div class="center" style="margin-top:20px;">
+    <span style="font-size:32px; text-shadow:0 0 9px #0ff;">Official Member — Since 2007</span>
+  </div>
+
+  <div class="center blink" style="font-size:26px; margin-top:10px;">
+    ★ BEST FRIENDSHIP CERTIFIED ★
+  </div>
+</div>
+
+  <div class="center blink" style="font-size:26px; margin-top:10px; color:#ffaeff;">
+    ★★ ULTRA FRIENDSHIP MODE ENABLED ★★
+  </div>
+
+<div class="marquee-bar">
+<marquee scrollamount="9" behavior="alternate">
+  <span class="marq"> FRIENDSHIP PHOTOS </span>
+</marquee>
+</div>
+
+<img src="mr.e.jpg" alt="" width="300" height="200">
+<img src="mr.v1.jpg" alt="" width="300" height="200">
+<figure>

@@ -1,0 +1,103 @@
+---
+// src/pages/index.astro
+import { useState } from 'react';
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls, Text, Box, Plane } from '@react-three/drei';
+---
+
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <title>MR.V & MR.E — 2007–2025</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script type="module" src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+      .neon { font-family: 'Press Start 2P', cursive; text-shadow: 0 0 20px #0f0, 0 0 40px #0f0; }
+      .blink { animation: blink 1s infinite; }
+      @keyframes blink { 50% { opacity: 0.3; } }
+    </style>
+  </head>
+  <body class="bg-black text-lime-400 overflow-x-hidden">
+
+    <!-- 1. ВСРЯТЫЙ ВХОД -->
+    <section class="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-purple-900 to-blue-900">
+      <h1 class="neon text-8xl blink">MR.V & MR.E</h1>
+      <p class="text-6xl mt-10">2007–∞</p>
+      <p class="text-4xl mt-20 animate-bounce">листай ниже, если не ссышь</p>
+    </section>
+
+    <!-- 2. ТАЙМЕР -->
+    <section class="min-h-screen flex flex-col items-center justify-center bg-black">
+      <h2 class="neon text-7xl">ВМЕСТЕ УЖЕ</h2>
+      <div id="timer" class="neon text-9xl mt-10">0 дней</div>
+    </section>
+
+    <!-- 3. МАГАЗИН -->
+    <section class="min-h-screen bg-gradient-to-b from-black to-purple-900 flex flex-col items-center justify-center">
+      <h2 class="neon text-8xl blink">МАГАЗИН ЛЕГЕНД</h2>
+      <button class="mt-20 px-20 py-10 bg-pink-600 text-6xl border-8 border-lime-400 hover:scale-110 transition">
+        В КОРЗИНУ → бл* нам лень
+      </button>
+    </section>
+
+    <!-- 4. ОТПРАВИТЬ НАХУЙ -->
+    <section class="min-h-screen bg-red-900 flex flex-col items-center justify-center gap-20">
+      <h2 class="neon text-9xl">ВЫБЕРИ ЖЕРТВУ</h2>
+      <div class="flex gap-40">
+        <button onclick="fuck('MR.V')" class="px-20 py-16 bg-black text-lime-400 text-6xl border-8 border-pink-600 hover:bg-pink-600 hover:text-black transition">MR.V → НАХУЙ</button>
+        <button onclick="fuck('MR.E')" class="px-20 py-16 bg-cyan-400 text-black text-6xl border-8 border-lime-400 hover:bg-lime-400 transition">MR.E → НАХУЙ</button>
+      </div>
+    </section>
+
+    <!-- 5. 3D-КОМНАТА — ВЗРЫВ МОЗГА -->
+    <section class="h-screen bg-black">
+      <Canvas camera={{ position: [0, 2, 8], fov: 60 }}>
+        <ambientLight intensity={0.5} />
+        <pointLight position={[10, 10, 10]} />
+        <OrbitControls enablePan={false} />
+        
+        <Plane args={[40, 40]} rotation={[-Math.PI/2, 0, 0]} position={[0, -1, 0]}>
+          <meshStandardMaterial color="#111" />
+        </Plane>
+
+        <Box position={[-3, 1, -3]} args={[3, 4, 0.2]}>
+          <meshStandardMaterial color="#ff00ff" />
+        </Box>
+        <Text position={[-3, 3.5, -2.9]} fontSize={0.8} color="black">MR.V</Text>
+
+        <Box position={[3, 1, -3]} args={[3, 4, 0.2]}>
+          <meshStandardMaterial color="#00ffff" />
+        </Box>
+        <Text position={[3, 3.5, -2.9]} fontSize={0.8} color="black">MR.E</Text>
+
+        <Text position={[0, 4, -10]} fontSize={2} color="#0f0">2007 FOREVER</Text>
+      </Canvas>
+    </section>
+
+    <script>
+      // таймер
+      setInterval(() => {
+        const start = new Date('2007-01-01');
+        const diff = Date.now() - start;
+        const days = Math.floor(diff / 86400000);
+        const hours = Math.floor((diff % 86400000) / 3600000);
+        const mins = Math.floor((diff % 3600000) / 60000);
+        document.getElementById('timer').textContent = ${days} дней ${hours}ч ${mins}м;
+      }, 1000);
+
+      // отправить нахуй
+      window.fuck = (name) => {
+        document.body.innerHTML = `<div style="background:black;color:red;font-size:100px;display:flex;align-items:center;justify-content:center;height:100vh;flex-direction:column">
+          ${name} УСПЕШНО ОТПРАВЛЕН НАХУЙ<br><span style="font-size:200px">3</span>
+        </div>`;
+        let sec = 3;
+const interval = setInterval(() => {
+          sec--;
+          document.querySelector('span').textContent = sec;
+          if (sec === 0) { clearInterval(interval); location.reload(); }
+        }, 1000);
+      };
+    </script>
+  </body>
+</html>
